@@ -42,10 +42,6 @@ const alumno_t ALUMNOS[] = {
     &GERMAN_CARDOZO,
 };
 
-
-
-
-
 const int CANTIDAD_ALUMNOS = (sizeof(ALUMNOS) / sizeof(alumno_t));
 
 /*=====[Definitions of private global variables]=============================*/
