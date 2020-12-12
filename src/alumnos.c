@@ -25,26 +25,34 @@
 
 /*=====[Definitions of public global variables]==============================*/
 
+/**
+*  Armado de constante con los datos del profesor
+*
+*/
 static const struct alumno_s ESTEBAN_VOLENTINI = {
     .apellidos = "VOLENTINI",
     .nombres = "Esteban Daniel",
     .documento = "23.517.968",
 };
 
-static const struct alumno_s GERMAN_CARDOZO = {
-    .apellidos = "CARDOZO",
-    .nombres = "Germán Eloy",
-    .documento = "33.787.806",
+/**
+* Armado de constante con los datos alumno CARDOZO, Germán
+*
+*/
+static const struct alumno_s GERMAN_CARDOZO = { /se inicializa unanueva variable de alumno
+    .apellidos = "CARDOZO", /* ** se carga el apellido ** */
+    .nombres = "Germán Eloy", /* ** se carga los nombres ** */ 
+    .documento = "33.787.806", /* ** se carga el DNI ** */
 };
 
+/**
+* Armado del vector de datos
+*
+*/
 const alumno_t ALUMNOS[] = {
     &ESTEBAN_VOLENTINI,
-    &GERMAN_CARDOZO,
+    &GERMAN_CARDOZO, /* ** se llama la nueva variable creada  ** */
 };
-
-
-
-
 
 const int CANTIDAD_ALUMNOS = (sizeof(ALUMNOS) / sizeof(alumno_t));
 
@@ -56,6 +64,11 @@ const int CANTIDAD_ALUMNOS = (sizeof(ALUMNOS) / sizeof(alumno_t));
 
 /*=====[Implementations of interrupt functions]==============================*/
 
+
+/**
+* Funcion que reviza que halla datos válidos
+*
+*/
 bool SerializarAlumno(char * cadena, size_t espacio, const alumno_t alumno) {
     int resultado;
     const char FORMATO[] = "{"
@@ -70,6 +83,10 @@ bool SerializarAlumno(char * cadena, size_t espacio, const alumno_t alumno) {
     return (resultado >= 0);
 }
 
+/**
+* Funcion que imprime los datos
+*
+*/
 bool SerializarAlumnos(char * cadena, size_t espacio) {
     static const int  cantidad = sizeof(ALUMNOS) / sizeof(alumno_t);
     int posicion = snprintf(cadena, espacio, "[\r\n  ");
